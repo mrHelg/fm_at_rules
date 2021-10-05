@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --text-color: rgb(188, 188, 188);
+  --attention-color: #fdde46;
+  --border-radius: 10px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 22px;
+}
+
+.main-header {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 80px;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.userCard {
+  position: relative;
+  width: 700px;
+  margin: 0 auto;
+  display: flex;
+  border-radius: var(--border-radius);
+  box-shadow: 0px 0px 10px #777;
+  background-color: white;
+}
+
+.background-usercard1,
+.background-usercard2 {
+  position: absolute;
+  width: inherit;
+  height: 100px;
+  border-radius: var(--border-radius);
+  box-shadow: 0px 0px 10px #777;
+  background-color: white;
+  transform: scale(0.9) translateY(-25px);
+  z-index: -1;
+}
+
+.background-usercard2 {
+  transform: scale(0.8) translateY(-50px);
+}
+
+.userTag {
+  margin-bottom: 50px;
+  font-weight: 100;
+}
+.value {
+  margin-top: 10px;
+  font-size: 1.3rem;
+}
+.userCard::before {
+  display: block;
+  padding: 7px 10px;
+  position: absolute;
+  content: "PRO";
+  right: 20px;
+  top: 20px;
+  background-color: rgb(229, 229, 229);
+  color: white;
+  border-radius: 20px;
+  /* text-align: center; */
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+.userCard::after {
+  --circle-size: 75px;
+  display: block;
+  position: absolute;
+  content: "+";
+  right: calc(var(--circle-size) / -2);
+  top: calc(50% - (var(--circle-size) / 2));
+  width: var(--circle-size);
+  height: var(--circle-size);
+  background-color: var(--attention-color);
+  border-radius: 50%;
+  text-align: center;
+  font-family: serif;
+  font-size: 2rem;
+  line-height: var(--circle-size);
+  opacity: 0.85;
+}
+
+.imageWrapper {
+  width: 40%;
+}
+
+.userImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius) 0px 0px var(--border-radius);
+}
+
+.userInfo {
+  margin-left: 10%;
+  color: var(--text-color);
+}
+
+.userPersonalInfo {
+  margin-bottom: 10px;
+}
+
+.userName {
+  color: #000;
+  font-size: 1.5rem;
+}
+
+.userStatusContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.userStatus {
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (max-width: 700px) {
+  .userCard {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .imageWrapper {
+    width: 100%;
+  }
+
+  .userInfo {
+    margin: 0;
+    padding: 1em;
+  }
+
+  .userImage {
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+  }
+
+  .userCard::after,
+  .background-usercard1,
+  .background-usercard2 {
+    display: none;
+  }
+}
